@@ -11,6 +11,20 @@
 // VIẾT CODE Ở ĐÂY
 #include <stdio.h>
 
+int findMaxMin(int arr[], int n, int *MAX, int *MIN) {
+    *MAX = arr[0];
+    *MIN = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > *MAX) {
+            *MAX = arr[i];
+        }
+        if (arr[i] < *MIN) {
+            *MIN = arr[i];
+        }
+    }
+    return 0;
+}
+
 int main() {
     int n;
     printf("Nhap so phan tu n: ");
@@ -21,17 +35,14 @@ int main() {
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
-
     int MAX, MIN;
-    MAX = MIN = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > MAX) {
-            MAX = arr[i];
-        }
-        if (arr[i] < MIN) {
-            MIN = arr[i];
-        }
-    }
+    findMaxMin(arr, n, &MAX, &MIN);
+
+    printf("Gia tri lon nhat trong mang: %d\n", MAX);
+    printf("Gia tri nho nhat trong mang: %d\n", MIN);
+
+    return 0;
+}
 
     printf("Gia tri lon nhat trong mang: %d\n", MAX);
     printf("Gia tri nho nhat trong mang: %d\n", MIN);
